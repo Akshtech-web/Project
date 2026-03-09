@@ -2,7 +2,7 @@ import build from '@hono/vite-build/cloudflare-pages'
 import devServer from '@hono/vite-dev-server'
 import adapter from '@hono/vite-dev-server/cloudflare'
 import { defineConfig } from 'vite'
-import { copyFileSync, mkdirSync, readdirSync, statSync } from 'fs'
+import { copyFileSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
 // Plugin to copy public/ files into dist/ after build
@@ -27,10 +27,27 @@ function copyPublicPlugin() {
   }
 }
 
+// Plugin to write correct _routes.json so images/static assets are served directly
+function routesJsonPlugin() {
+  return {
+    name: 'write-routes-json',
+    closeBundle() {
+      mkdirSync('dist', { recursive: true })
+      const routes = {
+        version: 1,
+        include: ['/*'],
+        exclude: ['/static/*', '/*.png', '/*.jpg', '/*.jpeg', '/*.gif', '/*.ico', '/*.svg', '/*.webp', '/*.woff2', '/*.woff', '/*.ttf']
+      }
+      writeFileSync('dist/_routes.json', JSON.stringify(routes))
+    }
+  }
+}
+
 export default defineConfig({
   plugins: [
     build(),
     copyPublicPlugin(),
+    routesJsonPlugin(),
     devServer({
       adapter,
       entry: 'src/index.tsx'
