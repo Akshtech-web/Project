@@ -474,6 +474,88 @@ function homePage(): string {
     .cert-icon { font-size: 22px; }
     .cert-text { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
 
+    /* ===== SKILL CHIPS ===== */
+    .skill-chip {
+      display: inline-block;
+      padding: 5px 12px;
+      background: rgba(0,82,204,0.12);
+      border: 1px solid rgba(0,82,204,0.25);
+      border-radius: 20px;
+      font-size: 12px; font-weight: 500;
+      color: #93C5FD;
+      transition: all 0.2s;
+    }
+    .skill-chip:hover { background: rgba(0,82,204,0.25); border-color: rgba(0,82,204,0.5); }
+
+    /* ===== CREDLY CARD STYLES ===== */
+    .credly-card {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .credly-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,82,204,0.35);
+      box-shadow: 0 20px 60px rgba(0,82,204,0.12);
+    }
+    .credly-card-inner {
+      display: flex; flex-direction: column;
+    }
+    .credly-badge-img {
+      width: 90px; height: 90px;
+      object-fit: contain;
+      padding: 16px 16px 0; flex-shrink: 0;
+      align-self: flex-start;
+    }
+    .credly-card-body {
+      padding: 12px 20px 20px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .credly-level {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .credly-level--cert { color: #FBBF24; }
+    .credly-level--prev { color: var(--text-muted); }
+    .credly-level--learn { color: #34D399; }
+    .credly-name {
+      font-size: 14px; font-weight: 700;
+      color: var(--text-primary); line-height: 1.4;
+    }
+    .credly-meta {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      font-size: 12px; color: var(--text-muted);
+    }
+    .credly-active { color: #34D399; }
+    .credly-active i { font-size: 8px; vertical-align: middle; }
+    .credly-expired { color: var(--text-muted); }
+    .credly-exam {
+      font-size: 11px; color: var(--accent);
+      font-weight: 600;
+    }
+    .credly-skills {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .credly-skills span {
+      display: inline-block;
+      padding: 3px 10px;
+      background: rgba(0,180,216,0.08);
+      border: 1px solid rgba(0,180,216,0.2);
+      border-radius: 20px;
+      font-size: 11px; font-weight: 500;
+      color: #67E8F9;
+    }
+    .credly-verify {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 600;
+      color: #60A5FA;
+      transition: color 0.2s;
+      margin-top: 4px;
+    }
+    .credly-verify:hover { color: #93C5FD; }
+
     .expertise-points { display: flex; flex-direction: column; gap: 20px; margin-top: 40px; }
     .exp-point {
       display: flex; gap: 16px;
@@ -886,6 +968,8 @@ function homePage(): string {
       <li><a href="#about">About</a></li>
       <li><a href="#cases">Case Studies</a></li>
       <li><a href="#testimonials">Clients</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#contact" class="nav-cta">Get a Consultation</a></li>
     </ul>
@@ -1164,10 +1248,10 @@ function homePage(): string {
             </div>
           </div>
           <div class="certifications">
-            <div class="cert-badge"><div class="cert-icon">🏆</div><div class="cert-text">SAP Certified PP Associate</div></div>
-            <div class="cert-badge"><div class="cert-icon">🎖️</div><div class="cert-text">SAP Certified QM Associate</div></div>
-            <div class="cert-badge"><div class="cert-icon">⭐</div><div class="cert-text">S/4HANA Manufacturing</div></div>
-            <div class="cert-badge"><div class="cert-icon">✅</div><div class="cert-text">SAP PS Project Mgmt</div></div>
+            <div class="cert-badge"><div class="cert-icon">🏆</div><div class="cert-text">SAP Certified – S/4HANA Cloud Private Edition</div></div>
+            <div class="cert-badge"><div class="cert-icon">🎖️</div><div class="cert-text">SAP Certified – S/4HANA PP &amp; Manufacturing</div></div>
+            <div class="cert-badge"><div class="cert-icon">⭐</div><div class="cert-text">SAP Certified – S/4HANA Project Systems</div></div>
+            <div class="cert-badge"><div class="cert-icon">✅</div><div class="cert-text">SAP Certified – S/4HANA Cloud Public Edition</div></div>
           </div>
         </div>
       </div>
@@ -1569,6 +1653,438 @@ function homePage(): string {
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS SUMMARY -->
+<section id="skills" style="background:var(--dark);padding:100px 0;">
+  <div class="container">
+    <div data-aos="fade-up" style="text-align:center;margin-bottom:60px;">
+      <div class="section-label" style="justify-content:center">Verified Competencies</div>
+      <h2 class="section-title">Skills &amp; Technical Expertise</h2>
+      <p class="section-desc" style="margin:0 auto">A consolidated view of all technical skills, domain knowledge, and consulting competencies — drawn directly from SAP-issued Credly credentials and 12+ years of hands-on delivery.</p>
+    </div>
+
+    <!-- Skills by Domain -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;" data-aos="fade-up" data-aos-delay="100">
+
+      <!-- SAP PP -->
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,#0052CC,#00B4D8);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🏭</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">SAP PP — Production Planning</div>
+            <div style="font-size:12px;color:var(--text-muted);">Core SAP module specialisation</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-chip">MRP / MRP II Configuration</span>
+          <span class="skill-chip">Demand Management</span>
+          <span class="skill-chip">Production Orders</span>
+          <span class="skill-chip">Work Centre &amp; Routing</span>
+          <span class="skill-chip">Capacity Planning</span>
+          <span class="skill-chip">BOM &amp; Material Master</span>
+          <span class="skill-chip">Shop Floor Control</span>
+          <span class="skill-chip">PP-PI (Process Industries)</span>
+          <span class="skill-chip">Repetitive Manufacturing</span>
+          <span class="skill-chip">As-Is/To-Be Documentation</span>
+          <span class="skill-chip">Application Configuration</span>
+          <span class="skill-chip">LoB Process Expertise</span>
+        </div>
+      </div>
+
+      <!-- SAP QM -->
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,#059669,#34D399);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✅</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">SAP QM — Quality Management</div>
+            <div style="font-size:12px;color:var(--text-muted);">GMP / ISO / GxP compliance</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-chip">Inspection Plan Setup</span>
+          <span class="skill-chip">Quality Notifications</span>
+          <span class="skill-chip">Control Charts &amp; SPC</span>
+          <span class="skill-chip">Batch Management</span>
+          <span class="skill-chip">GMP Compliance Config</span>
+          <span class="skill-chip">Defect Recording</span>
+          <span class="skill-chip">Vendor Evaluation (QM)</span>
+          <span class="skill-chip">Calibration Management</span>
+          <span class="skill-chip">QM-MM / QM-PP Integration</span>
+          <span class="skill-chip">Scope Item Config</span>
+          <span class="skill-chip">Integration &amp; Extensibility</span>
+          <span class="skill-chip">Basic Production Processing</span>
+        </div>
+      </div>
+
+      <!-- SAP PS -->
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,#7C3AED,#A78BFA);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📊</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">SAP PS — Project Systems</div>
+            <div style="font-size:12px;color:var(--text-muted);">Investment &amp; logistics projects</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-chip">WBS Structure Design</span>
+          <span class="skill-chip">Network &amp; Milestones</span>
+          <span class="skill-chip">Cost Planning &amp; Budgeting</span>
+          <span class="skill-chip">Results Analysis</span>
+          <span class="skill-chip">Settlement Rules</span>
+          <span class="skill-chip">Revenues &amp; Payments</span>
+          <span class="skill-chip">Resource Mgmt (RMS)</span>
+          <span class="skill-chip">Dates &amp; Scheduling</span>
+          <span class="skill-chip">Investment Projects</span>
+          <span class="skill-chip">Project Controlling</span>
+          <span class="skill-chip">Portfolio Evaluation</span>
+          <span class="skill-chip">Financial Calculations</span>
+        </div>
+      </div>
+
+      <!-- S/4HANA & Implementation -->
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,#F59E0B,#FCD34D);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">⚡</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">S/4HANA &amp; SAP Cloud</div>
+            <div style="font-size:12px;color:var(--text-muted);">Cloud Private &amp; Public Edition</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-chip">System Implementation</span>
+          <span class="skill-chip">System Configuration</span>
+          <span class="skill-chip">Data Migration</span>
+          <span class="skill-chip">Extension Methods</span>
+          <span class="skill-chip">Software Testing Lifecycle</span>
+          <span class="skill-chip">Scope Management</span>
+          <span class="skill-chip">SAP Cloud Suite Portfolio</span>
+          <span class="skill-chip">SAP Activate Method.</span>
+          <span class="skill-chip">Fit-to-Standard Workshops</span>
+          <span class="skill-chip">Blueprinting</span>
+          <span class="skill-chip">Change Management</span>
+          <span class="skill-chip">Knowledge Transfer</span>
+        </div>
+      </div>
+
+      <!-- Digital Manufacturing -->
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,#0891B2,#22D3EE);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🤖</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Digital Manufacturing &amp; MES</div>
+            <div style="font-size:12px;color:var(--text-muted);">SAP Digital Manufacturing Cloud</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-chip">Shop Floor Integration</span>
+          <span class="skill-chip">Operational Efficiency</span>
+          <span class="skill-chip">System Integration</span>
+          <span class="skill-chip">Strategic Implementation</span>
+          <span class="skill-chip">Problem-Solving</span>
+          <span class="skill-chip">IoT Connectivity Concepts</span>
+          <span class="skill-chip">Production Execution</span>
+          <span class="skill-chip">OEE Tracking</span>
+        </div>
+      </div>
+
+      <!-- Presales & Consulting -->
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:42px;height:42px;background:linear-gradient(135deg,#DC2626,#F87171);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🤝</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Consulting &amp; Client Engagement</div>
+            <div style="font-size:12px;color:var(--text-muted);">Presales, discovery &amp; delivery</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-chip">Discovery Interviews</span>
+          <span class="skill-chip">Pain Chain Analysis</span>
+          <span class="skill-chip">Research &amp; Preparation</span>
+          <span class="skill-chip">Solution Demonstration</span>
+          <span class="skill-chip">Workshop Facilitation</span>
+          <span class="skill-chip">Stakeholder Management</span>
+          <span class="skill-chip">User Training &amp; Handover</span>
+          <span class="skill-chip">SLA-Driven AMS Support</span>
+          <span class="skill-chip">Documentation Standards</span>
+          <span class="skill-chip">Contractor Engagement Model</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats Row -->
+    <div data-aos="fade-up" data-aos-delay="200" style="margin-top:60px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;">
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="font-size:36px;font-weight:800;font-family:'Poppins',sans-serif;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">7</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">SAP Certifications</div>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="font-size:36px;font-weight:800;font-family:'Poppins',sans-serif;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">5</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Learning Badges</div>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="font-size:36px;font-weight:800;font-family:'Poppins',sans-serif;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">50+</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Technical Skills</div>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="font-size:36px;font-weight:800;font-family:'Poppins',sans-serif;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">4</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Active Certs (2026)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS (Credly) -->
+<section class="certs-section" id="certifications" style="background:var(--dark2);">
+  <div class="container">
+    <div data-aos="fade-up" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Verified by SAP on Credly</div>
+      <h2 class="section-title">SAP Certifications &amp; Badges</h2>
+      <p class="section-desc" style="margin:0 auto">All 12 credentials independently verified and issued by SAP via Credly — the global standard for digital badges. Click any card to verify directly on Credly.</p>
+    </div>
+
+    <!-- CERTIFICATIONS GRID -->
+    <div style="margin-top:20px;">
+      <h3 style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:24px;margin-top:40px;">🏆 SAP Certifications (Active &amp; Superseded)</h3>
+      <div class="credly-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;">
+
+        <!-- Badge 1: S/4HANA Cloud Private Edition Implementation Consultant (ACTIVE) -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/4c84272d-2278-4cf5-9c93-4d536cc3bfb7/blob" alt="SAP Certified Implementation Consultant S/4HANA Cloud Private Edition" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--cert">🏅 Certification · Intermediate</div>
+              <div class="credly-name">SAP Certified – Implementation Consultant – SAP S/4HANA Cloud Private Edition</div>
+              <div class="credly-meta">
+                <span><i class="fas fa-calendar-check"></i> Issued 30 Mar 2025</span>
+                <span class="credly-active"><i class="fas fa-circle"></i> Active until Mar 2026</span>
+              </div>
+              <div class="credly-exam"><i class="fas fa-file-alt"></i> Exam: E_S4CPE_2405 (Proctored)</div>
+              <div class="credly-skills">
+                <span>Data Migration</span><span>System Configuration</span><span>System Implementation</span><span>Extension Methods</span><span>Software Testing Life Cycle</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/sap-certified-implementation-consultant-sap-s-4hana.5" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 2: S/4HANA PP Cloud Private Edition (ACTIVE) -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/721107c7-69a4-41da-8660-6721107af8bd/blob" alt="SAP Certified S/4HANA PP Manufacturing" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--cert">🏅 Certification · Intermediate</div>
+              <div class="credly-name">SAP Certified – SAP S/4HANA Cloud Private Edition, Production Planning &amp; Manufacturing</div>
+              <div class="credly-meta">
+                <span><i class="fas fa-calendar-check"></i> Issued Apr 2023</span>
+                <span class="credly-active"><i class="fas fa-circle"></i> Active until Mar 2026</span>
+              </div>
+              <div class="credly-skills">
+                <span>As-Is/To-Be Process Documentation</span><span>Application Configuration</span><span>LoB Business Process Expertise</span><span>Knowledge Transfer &amp; Workshop Facilitation</span><span>Change Management Support</span><span>Blueprinting</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/sap-certified-sap-s-4hana-cloud-private-edition-pro" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 3: S/4HANA Project Systems (ACTIVE) -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/fe418432-2e37-41af-bb9d-940be53b8a90/blob" alt="SAP Certified S/4HANA Project Systems" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--cert">🏅 Certification · Intermediate</div>
+              <div class="credly-name">SAP Certified – SAP S/4HANA Project Systems</div>
+              <div class="credly-meta">
+                <span><i class="fas fa-calendar-check"></i> Issued Dec 2021</span>
+                <span class="credly-active"><i class="fas fa-circle"></i> Active until Mar 2026</span>
+              </div>
+              <div class="credly-skills">
+                <span>Project Structures</span><span>Cost &amp; Budgets</span><span>Resources</span><span>Dates &amp; Scheduling</span><span>Revenues &amp; Payments</span><span>Material Management in PS</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/sap-certified-sap-s-4hana-project-systems" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 4: S/4HANA Cloud Public Edition Implementation Consultant (ACTIVE) -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/181c54ac-cac0-493c-9caa-45d65277a1ca/blob" alt="SAP Certified Implementation Consultant S/4HANA Cloud Public Edition" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--cert">🏅 Certification · Intermediate</div>
+              <div class="credly-name">SAP Certified – Implementation Consultant – SAP S/4HANA Cloud Public Edition</div>
+              <div class="credly-meta">
+                <span><i class="fas fa-calendar-check"></i> Issued 17 Mar 2024</span>
+                <span class="credly-active"><i class="fas fa-circle"></i> Active until Mar 2026</span>
+              </div>
+              <div class="credly-skills">
+                <span>System Configuration</span><span>Project Implementation</span><span>System Implementation</span><span>Scope Management</span><span>SAP Cloud Suite Portfolio</span><span>Data Migration</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/sap-certified-implementation-consultant-sap-s-4hana.2" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 5: S/4HANA Cloud Public Edition Manufacturing 2023 (SUPERSEDED) -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/f111239c-974a-4d3f-affc-6df76bf000a8/image.png" alt="SAP Certified Application Associate Manufacturing 2023" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--prev">📜 Certification · Intermediate</div>
+              <div class="credly-name">SAP Certified Application Associate – S/4HANA Cloud Public Edition – Manufacturing 2023</div>
+              <div class="credly-meta">
+                <span><i class="fas fa-calendar-check"></i> Issued Sep 2023</span>
+                <span class="credly-expired"><i class="fas fa-history"></i> Superseded (upgraded)</span>
+              </div>
+              <div class="credly-skills">
+                <span>Scope Item Level Implementation &amp; Configuration for QM</span><span>Scope Item Level Config for Basic Production Planning</span><span>Scope Item Level Config for Production Processing</span><span>Integration &amp; Extensibility</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/sap-certified-application-associate-sap-s-4hana-cloud-public-edition-manufacturing-2023" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 6: S/4HANA Production Planning & Manufacturing (SUPERSEDED) -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/1cdb743f-3d56-45e0-89d4-10f6c1a2307f/image.png" alt="SAP Certified Application Associate PP Manufacturing" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--prev">📜 Certification · Intermediate</div>
+              <div class="credly-name">SAP Certified Application Associate – SAP S/4HANA Production Planning &amp; Manufacturing</div>
+              <div class="credly-meta">
+                <span><i class="fas fa-calendar-check"></i> Issued Apr 2023</span>
+                <span class="credly-expired"><i class="fas fa-history"></i> Superseded (upgraded)</span>
+              </div>
+              <div class="credly-skills">
+                <span>LoB Business Process &amp; Functional Expertise</span><span>Application Configuration</span><span>As-Is/To-Be Process Documentation</span><span>Blueprinting</span><span>Change Management Support</span><span>Knowledge Transfer &amp; Workshop Facilitation</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/sap-certified-application-associate-sap-s-4hana-production-planning-and-manufacturing.3" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 7: S/4HANA Project Systems Application Associate (SUPERSEDED) -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/a454c6d6-5ddd-4a86-a490-6bd788ef98e0/C_TS412_1909.png" alt="SAP Certified Application Associate Project Systems" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--prev">📜 Certification</div>
+              <div class="credly-name">SAP Certified Application Associate – SAP S/4HANA Project Systems</div>
+              <div class="credly-meta">
+                <span><i class="fas fa-calendar-check"></i> Issued Dec 2021</span>
+                <span class="credly-expired"><i class="fas fa-history"></i> Superseded (upgraded)</span>
+              </div>
+              <div class="credly-skills">
+                <span>Revenues &amp; Payments</span><span>Project Structures</span><span>Material in Projects</span><span>Resources</span><span>Cost &amp; Budgets</span><span>Dates &amp; Scheduling</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/sap-certified-application-associate-sap-s-4hana-project-systems" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LEARNING / RECORDS OF ACHIEVEMENT -->
+    <div style="margin-top:40px;">
+      <h3 style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:24px;">📚 Records of Achievement &amp; SAP Learning Badges</h3>
+      <div class="credly-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;">
+
+        <!-- Badge 8: Discovering SAP Digital Manufacturing -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/597fed5d-507d-4916-b5d4-0f59eb5943dd/image.png" alt="Discovering SAP Digital Manufacturing" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--learn">🎓 Learning · Foundational</div>
+              <div class="credly-name">Discovering SAP Digital Manufacturing – Record of Achievement</div>
+              <div class="credly-meta"><span><i class="fas fa-calendar-check"></i> Issued 6 Mar 2025</span></div>
+              <div class="credly-skills">
+                <span>Problem-Solving</span><span>Operational Efficiency</span><span>System Integration</span><span>Strategic Implementation</span><span>Shop Floor Connectivity</span><span>Digital Manufacturing Concepts</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/discovering-sap-digital-manufacturing-record-of-ach" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 9: Discovering SAP S/4HANA Portfolio & Project Management -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/a5448049-74c9-457d-82ce-9eed8e922ebd/image.png" alt="Discovering SAP S/4HANA Portfolio and Project Management" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--learn">🎓 Learning · Foundational</div>
+              <div class="credly-name">Discovering the Basics of SAP S/4HANA Portfolio &amp; Project Management</div>
+              <div class="credly-meta"><span><i class="fas fa-calendar-check"></i> Issued 24 Feb 2025</span></div>
+              <div class="credly-skills">
+                <span>Basic Project Lifecycle</span><span>Portfolio &amp; Project Evaluation</span><span>Scheduling &amp; Resource Management</span><span>Financial Calculations</span><span>Portfolio Management Basics</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/discovering-the-basics-of-sap-s-4hana-portfolio-and" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 10: Discovering SAP S/4HANA Project System Basics -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/1e887441-2d96-4206-9fec-32cb993db9ca/image.png" alt="Discovering SAP S/4HANA Project System" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--learn">🎓 Learning · Foundational</div>
+              <div class="credly-name">Discovering the Basics of SAP S/4HANA Project System</div>
+              <div class="credly-meta"><span><i class="fas fa-calendar-check"></i> Issued 23 Feb 2025</span></div>
+              <div class="credly-skills">
+                <span>Scheduling, Capacity Planning, Procurement &amp; Results Analysis</span><span>Settlement of Logistics Projects</span><span>Cost Planning, Budgeting, Recording &amp; Settlement of Investment Projects</span><span>Basics of SAP S/4HANA PS Processes</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/discovering-the-basics-of-sap-s-4hana-project-syste" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 11: Implementing Project Control in S/4HANA Cloud Public Edition -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/5627fb42-c19b-4634-8c95-258f5d4861da/image.png" alt="Implementing Project Control S/4HANA Cloud Public Edition" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--learn">🎓 Learning · Foundational</div>
+              <div class="credly-name">Implementing Project Control in SAP S/4HANA Cloud Public Edition</div>
+              <div class="credly-meta"><span><i class="fas fa-calendar-check"></i> Issued 16 Feb 2025</span></div>
+              <div class="credly-skills">
+                <span>SAP S/4HANA Project Control Features</span><span>Project Controlling for Logistics</span><span>Benefits of Project Control for Finance</span><span>Cloud Public Edition Configuration</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/implementing-project-control-in-sap-s-4hana-cloud-p" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge 12: Sharpening Presales Skills -->
+        <div class="credly-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="credly-card-inner">
+            <img src="https://images.credly.com/images/75f56932-ab0c-4eab-b396-e7ec533e8375/blob" alt="Sharpening Discovery and Demonstration Presales Skills" class="credly-badge-img" />
+            <div class="credly-card-body">
+              <div class="credly-level credly-level--learn">🎓 Learning · Foundational</div>
+              <div class="credly-name">Sharpening Your Discovery &amp; Demonstration Presales Skills</div>
+              <div class="credly-meta"><span><i class="fas fa-calendar-check"></i> Issued 4 Dec 2023</span></div>
+              <div class="credly-skills">
+                <span>Pain Chain Analysis</span><span>Research &amp; Preparation</span><span>Conducting Discovery Interviews</span><span>Solution Demonstration Techniques</span><span>Client Engagement</span>
+              </div>
+              <a href="https://www.credly.com/org/sap/badge/sharpening-your-discovery-and-demonstration-presale" target="_blank" class="credly-verify"><i class="fas fa-external-link-alt"></i> Verify on Credly</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Credly profile link -->
+    <div data-aos="fade-up" style="text-align:center;margin-top:48px;">
+      <a href="https://www.credly.com/users/ronit-rao.14666084/badges" target="_blank"
+         style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;
+                background:rgba(0,82,204,0.12);border:1px solid rgba(0,82,204,0.3);
+                border-radius:12px;color:#60A5FA;font-weight:600;font-size:15px;
+                transition:all 0.2s;">
+        <i class="fas fa-shield-alt"></i> View Full Credly Profile – All 12 Verified Badges
+      </a>
     </div>
   </div>
 </section>
