@@ -1678,7 +1678,7 @@ function homePage(): string {
       <p class="cta-desc">Whether you need urgent AMS support, a scoped implementation, or an S/4HANA migration partner — let's talk. Free discovery call, no commitment.</p>
       <div class="cta-actions">
         <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i> Book a Discovery Call</a>
-        <a href="mailto:info@akshtech.co.in" class="btn-secondary"><i class="fas fa-envelope"></i> info@akshtech.co.in</a>
+        <a href="mailto:support@akshtech.co.in" class="btn-secondary"><i class="fas fa-envelope"></i> support@akshtech.co.in</a>
       </div>
     </div>
   </div>
@@ -1698,7 +1698,7 @@ function homePage(): string {
           <div class="contact-card-icon">📧</div>
           <div class="contact-card-title">Email</div>
           <div class="contact-card-text">For project enquiries, RFPs, and AMS retainer discussions</div>
-          <a href="mailto:info@akshtech.co.in" class="contact-card-link">info@akshtech.co.in</a>
+          <a href="mailto:support@akshtech.co.in" class="contact-card-link">support@akshtech.co.in</a>
         </div>
         <div class="contact-card">
           <div class="contact-card-icon">💼</div>
@@ -1796,7 +1796,7 @@ function homePage(): string {
         <p class="footer-desc">Independent SAP PP, QM & PS consulting and contracting services. Trusted by global manufacturers, engineering firms, and project-driven organisations.</p>
         <div class="footer-social">
           <a href="https://www.linkedin.com/in/ronit-rao-14666084/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-          <a href="mailto:info@akshtech.co.in" class="social-link"><i class="fas fa-envelope"></i></a>
+          <a href="mailto:support@akshtech.co.in" class="social-link"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
       <div>
