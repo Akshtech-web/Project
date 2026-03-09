@@ -1,7 +1,11 @@
 import { Hono } from 'hono'
 import { serveStatic } from 'hono/cloudflare-workers'
 
-const app = new Hono()
+type Bindings = {
+  RESEND_API_KEY: string
+}
+
+const app = new Hono<{ Bindings: Bindings }>()
 
 // Named routes first
 app.get('/', (c) => {
@@ -9,6 +13,81 @@ app.get('/', (c) => {
 })
 
 app.post('/contact', async (c) => {
+  try {
+    const body = await c.req.parseBody()
+    const firstName  = String(body['first_name']  || '').trim()
+    const lastName   = String(body['last_name']   || '').trim()
+    const email      = String(body['email']       || '').trim()
+    const company    = String(body['company']     || 'Not provided').trim()
+    const module     = String(body['module']      || 'Not specified').trim()
+    const engagement = String(body['engagement']  || 'Not specified').trim()
+    const message    = String(body['message']     || '').trim()
+
+    const resendKey = c.env.RESEND_API_KEY
+
+    if (resendKey) {
+      const htmlBody = `
+        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f9f9f9;padding:0;">
+          <!-- Header -->
+          <div style="background:linear-gradient(135deg,#0052CC,#00B4D8);padding:32px 40px;border-radius:8px 8px 0 0;">
+            <h1 style="color:white;margin:0;font-size:22px;font-weight:700;">New Enquiry – AkshTech IT Consulting Services</h1>
+            <p style="color:rgba(255,255,255,0.85);margin:8px 0 0;font-size:14px;">Received via akshtech.co.in contact form</p>
+          </div>
+          <!-- Body -->
+          <div style="background:white;padding:32px 40px;border-radius:0 0 8px 8px;border:1px solid #e5e7eb;">
+            <table style="width:100%;border-collapse:collapse;">
+              <tr>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;width:40%;color:#6b7280;font-size:14px;font-weight:600;">Name</td>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;font-size:14px;color:#111827;">${firstName} ${lastName}</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;color:#6b7280;font-size:14px;font-weight:600;">Email</td>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;font-size:14px;"><a href="mailto:${email}" style="color:#0052CC;">${email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;color:#6b7280;font-size:14px;font-weight:600;">Company</td>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;font-size:14px;color:#111827;">${company}</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;color:#6b7280;font-size:14px;font-weight:600;">SAP Module(s)</td>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;font-size:14px;color:#111827;">${module}</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;color:#6b7280;font-size:14px;font-weight:600;">Engagement Type</td>
+                <td style="padding:10px 0;border-bottom:1px solid #f3f4f6;font-size:14px;color:#111827;">${engagement}</td>
+              </tr>
+            </table>
+            <div style="margin-top:24px;">
+              <p style="color:#6b7280;font-size:14px;font-weight:600;margin-bottom:8px;">Project Details</p>
+              <div style="background:#f9fafb;border-left:4px solid #0052CC;padding:16px;border-radius:4px;font-size:14px;color:#374151;line-height:1.7;">${message.replace(/\n/g, '<br/>')}</div>
+            </div>
+            <div style="margin-top:32px;padding:16px;background:#EFF6FF;border-radius:6px;text-align:center;">
+              <p style="margin:0;font-size:13px;color:#1e40af;">Reply directly to this email to respond to ${firstName} at <strong>${email}</strong></p>
+            </div>
+          </div>
+        </div>`
+
+      const resendResp = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${resendKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'AkshTech Enquiries <onboarding@resend.dev>',
+          to: ['support@akshtech.co.in'],
+          reply_to: email,
+          subject: `New SAP Enquiry from ${firstName} ${lastName} – ${module}`,
+          html: htmlBody
+        })
+      })
+      console.log('Resend status:', resendResp.status, await resendResp.text())
+    }
+  } catch (err) {
+    console.error('Contact form error:', err)
+    // Fail silently — always show thank-you page
+  }
+
   return c.html(thankYouPage())
 })
 
