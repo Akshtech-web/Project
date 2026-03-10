@@ -102,7 +102,7 @@ function homePage(): string {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AkshTech IT Consulting Services | SAP PP · QM · PS</title>
-  <meta name="description" content="AkshTech IT Consulting Services – Expert SAP PP, QM, and PS consulting and implementation. Ronit Rao – certified SAP contractor delivering end-to-end manufacturing, quality, and project systems solutions." />
+  <meta name="description" content="AkshTech IT Consulting Services – Expert SAP PP, QM, and PS consulting across S/4HANA Public & Private Cloud. Ronit Rao – certified SAP contractor with hands-on RISE with SAP and GROW with SAP experience, delivering end-to-end manufacturing, quality, and project systems solutions." />
   <link rel="icon" href="/akshtech-logo.png" type="image/png" />
 
   <!-- Fonts -->
@@ -1086,7 +1086,7 @@ function homePage(): string {
         Consulting
       </h1>
       <p class="hero-subtitle">
-        Delivering precision-grade SAP manufacturing, quality management, and project systems solutions across support and full-cycle implementations — as a trusted independent contractor.
+        Delivering precision-grade SAP PP, QM &amp; PS solutions across S/4HANA Public Cloud, Private Cloud, RISE with SAP, and GROW with SAP — as a trusted independent contractor with 12+ years of hands-on delivery.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">
@@ -1258,35 +1258,49 @@ function homePage(): string {
         </ul>
       </div>
 
-      <!-- Implementation -->
       <div class="service-card" data-aos="fade-up" data-aos-delay="200">
         <div class="service-icon">🚀</div>
         <div class="service-module-tag">Implementation</div>
         <h3 class="service-title">Full-Cycle Implementation</h3>
-        <p class="service-desc">Greenfield, brownfield, and selective data transition implementations following SAP Activate methodology for on-time, on-budget delivery.</p>
+        <p class="service-desc">Greenfield, brownfield, and selective data transition implementations on Public or Private Cloud, following SAP Activate methodology for on-time, on-budget delivery.</p>
         <ul class="service-features">
-          <li class="service-feature"><i class="fas fa-check-circle"></i>Blueprint & Fit-Gap Analysis</li>
-          <li class="service-feature"><i class="fas fa-check-circle"></i>Configuration & Customisation</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>Fit-to-Standard &amp; Fit-Gap Workshops</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>Configuration &amp; Customisation</li>
           <li class="service-feature"><i class="fas fa-check-circle"></i>Test Cycle Management (UT, SIT, UAT)</li>
-          <li class="service-feature"><i class="fas fa-check-circle"></i>Data Migration & Legacy Cut-over</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>Data Migration &amp; Legacy Cut-over</li>
           <li class="service-feature"><i class="fas fa-check-circle"></i>Hypercare Go-live Support</li>
-          <li class="service-feature"><i class="fas fa-check-circle"></i>End-user Training & Documentation</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>End-user Training &amp; Documentation</li>
         </ul>
       </div>
 
-      <!-- S/4HANA Migration -->
       <div class="service-card" data-aos="fade-up" data-aos-delay="300">
         <div class="service-icon">⚡</div>
-        <div class="service-module-tag">S/4HANA</div>
-        <h3 class="service-title">S/4HANA Transformation</h3>
-        <p class="service-desc">Navigate your SAP S/4HANA journey with a proven migration blueprint — from readiness assessment through to post-migration optimisation.</p>
+        <div class="service-module-tag">S/4HANA Cloud</div>
+        <h3 class="service-title">S/4HANA Cloud Transformation</h3>
+        <p class="service-desc">Navigate your journey to SAP S/4HANA Public or Private Cloud with a proven blueprint — from readiness assessment through post-migration optimisation.</p>
         <ul class="service-features">
           <li class="service-feature"><i class="fas fa-check-circle"></i>S/4HANA Readiness Assessment</li>
-          <li class="service-feature"><i class="fas fa-check-circle"></i>Conversion Strategy (SLT / SLO)</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>Conversion Strategy (SLT / SLO / Selective)</li>
           <li class="service-feature"><i class="fas fa-check-circle"></i>Custom Code Remediation</li>
-          <li class="service-feature"><i class="fas fa-check-circle"></i>Fiori App Activation & UX Design</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>Fiori App Activation &amp; UX Design</li>
           <li class="service-feature"><i class="fas fa-check-circle"></i>Business Process Re-engineering</li>
           <li class="service-feature"><i class="fas fa-check-circle"></i>Parallel Landscape Testing</li>
+        </ul>
+      </div>
+
+      <!-- RISE / GROW -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-icon">☁️</div>
+        <div class="service-module-tag">RISE &amp; GROW</div>
+        <h3 class="service-title">RISE with SAP &amp; GROW with SAP</h3>
+        <p class="service-desc">Hands-on delivery experience across both SAP cloud adoption programmes — Private Cloud managed migrations (RISE) and rapid Public Cloud deployments (GROW).</p>
+        <ul class="service-features">
+          <li class="service-feature"><i class="fas fa-check-circle"></i>RISE with SAP – Private Cloud Edition scoping &amp; migration</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>GROW with SAP – Public Cloud fit-to-standard workshops</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>SAP Activate methodology end-to-end</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>Clean Core strategy &amp; extensibility design</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>Business-driven cloud roadmap planning</li>
+          <li class="service-feature"><i class="fas fa-check-circle"></i>Hypercare &amp; post go-live cloud stabilisation</li>
         </ul>
       </div>
 
@@ -1314,8 +1328,12 @@ function homePage(): string {
               <div class="skill-track"><div class="skill-fill" style="--target-width:88%"></div></div>
             </div>
             <div class="skill-item">
-              <div class="skill-header"><span class="skill-name">S/4HANA Implementation</span><span class="skill-pct">90%</span></div>
-              <div class="skill-track"><div class="skill-fill" style="--target-width:90%"></div></div>
+              <div class="skill-header"><span class="skill-name">S/4HANA Public &amp; Private Cloud</span><span class="skill-pct">91%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--target-width:91%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">RISE with SAP &amp; GROW with SAP</span><span class="skill-pct">88%</span></div>
+              <div class="skill-track"><div class="skill-fill" style="--target-width:88%"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-header"><span class="skill-name">SAP Activate Methodology</span><span class="skill-pct">85%</span></div>
@@ -1331,6 +1349,7 @@ function homePage(): string {
             <div class="cert-badge"><div class="cert-icon">🎖️</div><div class="cert-text">SAP Certified – S/4HANA PP &amp; Manufacturing</div></div>
             <div class="cert-badge"><div class="cert-icon">⭐</div><div class="cert-text">SAP Certified – S/4HANA Project Systems</div></div>
             <div class="cert-badge"><div class="cert-icon">✅</div><div class="cert-text">SAP Certified – S/4HANA Cloud Public Edition</div></div>
+            <div class="cert-badge"><div class="cert-icon">☁️</div><div class="cert-text">RISE with SAP &amp; GROW with SAP Delivery</div></div>
           </div>
         </div>
       </div>
@@ -1376,7 +1395,7 @@ function homePage(): string {
           <div class="about-card-header">
             <div class="about-avatar">RR</div>
             <div class="about-name">Ronit Rao</div>
-            <div class="about-role">Senior SAP PP | QM | PS Consultant & Contractor</div>
+            <div class="about-role">Senior SAP PP | QM | PS · S/4HANA Public &amp; Private Cloud</div>
           </div>
           <div class="about-card-body">
             <div class="about-info-list">
@@ -1385,16 +1404,20 @@ function homePage(): string {
                 <span>12+ years</span> of SAP functional experience
               </div>
               <div class="about-info-item">
+                <i class="fas fa-cloud"></i>
+                <span>RISE with SAP</span> &amp; <span>GROW with SAP</span> delivery
+              </div>
+              <div class="about-info-item">
                 <i class="fas fa-map-marker-alt"></i>
-                Available <span>Globally</span> (Remote & On-site)
+                Available <span>Globally</span> (Remote &amp; On-site)
               </div>
               <div class="about-info-item">
                 <i class="fas fa-code-branch"></i>
-                SAP ECC 6.0 & <span>S/4HANA</span> expertise
+                S/4HANA <span>Public Cloud</span> &amp; <span>Private Cloud</span>
               </div>
               <div class="about-info-item">
                 <i class="fas fa-industry"></i>
-                Manufacturing, Engineering, <span>Pharma</span>, O&G
+                Manufacturing, Engineering, <span>Pharma</span>, O&amp;G
               </div>
               <div class="about-info-item">
                 <i class="fas fa-language"></i>
@@ -1420,19 +1443,22 @@ function homePage(): string {
         <div class="section-label">Meet the Consultant</div>
         <h2 class="about-headline">12+ Years Turning SAP Complexity into Business Value</h2>
         <p class="about-desc">
-          Ronit Rao is a seasoned SAP functional consultant and independent contractor specialising in Production Planning (PP), Quality Management (QM), and Project Systems (PS). With over 12 years of hands-on project experience, Ronit has guided organisations across manufacturing, engineering, pharmaceuticals, and oil & gas through complex SAP transformations.
+          Ronit Rao is a seasoned SAP functional consultant and independent contractor specialising in Production Planning (PP), Quality Management (QM), and Project Systems (PS). With over 12 years of hands-on project experience across both <strong>SAP S/4HANA Private Cloud</strong> and <strong>Public Cloud</strong>, Ronit has guided organisations across manufacturing, engineering, pharmaceuticals, and oil &amp; gas through complex SAP transformations.
         </p>
         <p class="about-desc">
-          Operating as an independent contractor through AkshTech IT Consulting Services, Ronit brings the accountability and personal commitment of a specialist combined with the rigour and process discipline of enterprise-grade delivery. Every engagement — from rapid AMS fixes to multi-year S/4HANA programmes — receives the same level of dedicated focus and quality.
+          Ronit brings direct, hands-on delivery experience with <strong>RISE with SAP</strong> — covering Private Cloud Edition managed migrations — and <strong>GROW with SAP</strong> — enabling rapid Public Cloud Edition deployments via SAP Activate. Whether your organisation is embarking on its first cloud journey or optimising an existing S/4HANA landscape, Ronit provides the end-to-end expertise to deliver outcomes on time and on budget.
+        </p>
+        <p class="about-desc">
+          Operating as an independent contractor through AkshTech IT Consulting Services, Ronit brings the accountability and personal commitment of a specialist combined with the rigour and process discipline of enterprise-grade delivery. Every engagement — from rapid AMS fixes to multi-year S/4HANA cloud programmes — receives the same level of dedicated focus and quality.
         </p>
         <div class="about-highlights">
           <div class="highlight-item">
             <div class="highlight-icon">🏆</div>
-            <div class="highlight-text"><strong>Full Lifecycle</strong>Blueprint through hypercare & post go-live support</div>
+            <div class="highlight-text"><strong>Full Lifecycle</strong>Blueprint through hypercare &amp; post go-live support</div>
           </div>
           <div class="highlight-item">
-            <div class="highlight-icon">⚡</div>
-            <div class="highlight-text"><strong>Rapid Onboarding</strong>Production-ready within 1–2 weeks of engagement start</div>
+            <div class="highlight-icon">☁️</div>
+            <div class="highlight-text"><strong>RISE &amp; GROW with SAP</strong>Private Cloud migrations &amp; Public Cloud rapid deployments</div>
           </div>
           <div class="highlight-item">
             <div class="highlight-icon">🌐</div>
@@ -1440,7 +1466,7 @@ function homePage(): string {
           </div>
           <div class="highlight-item">
             <div class="highlight-icon">📋</div>
-            <div class="highlight-text"><strong>Documentation</strong>Comprehensive solution design & knowledge transfer docs</div>
+            <div class="highlight-text"><strong>Documentation</strong>Comprehensive solution design &amp; knowledge transfer docs</div>
           </div>
         </div>
 
@@ -1451,8 +1477,8 @@ function homePage(): string {
               <div class="timeline-dot"></div>
               <div class="timeline-content">
                 <div class="timeline-period">2022 – Present</div>
-                <div class="timeline-role">Independent SAP Contractor</div>
-                <div class="timeline-company">AkshTech IT Consulting Services · Global Clients</div>
+                <div class="timeline-role">Independent SAP Contractor – Public &amp; Private Cloud</div>
+                <div class="timeline-company">AkshTech IT Consulting Services · RISE with SAP &amp; GROW with SAP</div>
               </div>
             </div>
             <div class="timeline-item">
@@ -1742,7 +1768,7 @@ function homePage(): string {
     <div data-aos="fade-up" style="text-align:center;margin-bottom:60px;">
       <div class="section-label" style="justify-content:center">Verified Competencies</div>
       <h2 class="section-title">Skills &amp; Technical Expertise</h2>
-      <p class="section-desc" style="margin:0 auto">A consolidated view of all technical skills, domain knowledge, and consulting competencies — drawn directly from SAP-issued Credly credentials and 12+ years of hands-on delivery.</p>
+      <p class="section-desc" style="margin:0 auto">A consolidated view of all technical skills across SAP PP, QM, PS, S/4HANA Public &amp; Private Cloud, RISE with SAP, GROW with SAP, and consulting competencies — drawn from SAP-issued Credly credentials and 12+ years of hands-on delivery.</p>
     </div>
 
     <!-- Skills by Domain -->
@@ -1829,19 +1855,23 @@ function homePage(): string {
           <div style="width:42px;height:42px;background:linear-gradient(135deg,#F59E0B,#FCD34D);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">⚡</div>
           <div>
             <div style="font-size:16px;font-weight:700;">S/4HANA &amp; SAP Cloud</div>
-            <div style="font-size:12px;color:var(--text-muted);">Cloud Private &amp; Public Edition</div>
+            <div style="font-size:12px;color:var(--text-muted);">Public Cloud · Private Cloud · RISE · GROW</div>
           </div>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="skill-chip">S/4HANA Private Cloud Edition</span>
+          <span class="skill-chip">S/4HANA Public Cloud Edition</span>
+          <span class="skill-chip">RISE with SAP</span>
+          <span class="skill-chip">GROW with SAP</span>
           <span class="skill-chip">System Implementation</span>
           <span class="skill-chip">System Configuration</span>
           <span class="skill-chip">Data Migration</span>
           <span class="skill-chip">Extension Methods</span>
-          <span class="skill-chip">Software Testing Lifecycle</span>
+          <span class="skill-chip">Clean Core Strategy</span>
+          <span class="skill-chip">Fit-to-Standard Workshops</span>
+          <span class="skill-chip">SAP Activate Methodology</span>
           <span class="skill-chip">Scope Management</span>
           <span class="skill-chip">SAP Cloud Suite Portfolio</span>
-          <span class="skill-chip">SAP Activate Method.</span>
-          <span class="skill-chip">Fit-to-Standard Workshops</span>
           <span class="skill-chip">Blueprinting</span>
           <span class="skill-chip">Change Management</span>
           <span class="skill-chip">Knowledge Transfer</span>
@@ -1905,12 +1935,12 @@ function homePage(): string {
         <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Learning Badges</div>
       </div>
       <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
-        <div style="font-size:36px;font-weight:800;font-family:'Poppins',sans-serif;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">50+</div>
+        <div style="font-size:36px;font-weight:800;font-family:'Poppins',sans-serif;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">60+</div>
         <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Technical Skills</div>
       </div>
       <div style="background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
-        <div style="font-size:36px;font-weight:800;font-family:'Poppins',sans-serif;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">4</div>
-        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Active Certs (2026)</div>
+        <div style="font-size:36px;font-weight:800;font-family:'Poppins',sans-serif;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">2</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">Cloud Platforms (RISE &amp; GROW)</div>
       </div>
     </div>
   </div>
